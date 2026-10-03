@@ -1,0 +1,29 @@
+commands:
+  dev:
+    command: "npm run dev"
+    description: "Start Vite dev server on port 3000"
+
+  build:
+    command: "npm run build"
+    description: "TypeScript check + Vite production build"
+
+  typecheck:
+    command: "npx tsc --noEmit"
+    description: "TypeScript type checking only"
+
+  preview:
+    command: "npm run preview"
+    description: "Preview production build"
+
+validation:
+  pre_task:
+    - "npx tsc --noEmit"
+
+  post_task:
+    - "npx tsc --noEmit"
+
+  quality_gates:
+    - "no_typescript_errors"
+    - "all_routes_loadable"
+    - "responsive_at_all_breakpoints"
+    - "loading_empty_error_states"

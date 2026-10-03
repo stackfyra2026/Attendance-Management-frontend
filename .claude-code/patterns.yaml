@@ -1,0 +1,37 @@
+patterns:
+  components:
+    structure: "functional-components"
+    naming: "PascalCase"
+    file_extension: ".tsx"
+    barrel_exports: true
+
+  functions:
+    naming: "camelCase"
+    arrow_functions: true
+    async_preferred: true
+
+  imports:
+    order: ["react", "third-party", "local"]
+    absolute_paths: true
+    barrel_preferred: true
+
+  state_management:
+    global: "Redux Toolkit (auth, attendance, notifications, app)"
+    local: "React Hook Form (forms), useState (UI state)"
+    avoid_redux_for: "form fields, modal state, local UI state"
+
+  styling:
+    framework: "tailwind-css-v4"
+    tokens: "CSS custom properties via @theme"
+    dark_mode: "class-based (.dark on html)"
+    mobile_first: true
+    min_touch_target: "44px"
+
+standards:
+  max_function_lines: 120
+  max_file_lines: 400
+  typescript_strict: true
+  no_any: true
+  no_hardcoded_values: true
+  responsive_required: true
+  loading_empty_error_states: true

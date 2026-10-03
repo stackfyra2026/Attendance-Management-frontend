@@ -1,0 +1,37 @@
+project:
+  name: "AttendFlow"
+  type: "web-app"
+  language: "typescript"
+  framework: "react"
+  version: "0.0.1"
+
+memory_bank:
+  path: "memory-bank/"
+  required_files:
+    - "00-project-brief.md"
+    - "01-product-context.md"
+    - "02-active-context.md"
+    - "03-system-patterns.md"
+    - "04-tech-context.md"
+    - "05-progress-log.md"
+  conditional_files:
+    components: "06-components.md"
+    api: "07-api-documentation.md"
+    workflow: "08-development-process.md"
+
+preferences:
+  code_style: "functional-components"
+  testing: "none_yet"
+  linting: "tsc_strict"
+  formatting: "default"
+  locale: "indian"
+
+features:
+  - "React 19 + TypeScript"
+  - "Tailwind CSS v4 (CSS-first config)"
+  - "Redux Toolkit"
+  - "React Router 7"
+  - "React Hook Form + Zod"
+  - "Recharts"
+  - "Lucide React icons"
+  - "date-fns"
