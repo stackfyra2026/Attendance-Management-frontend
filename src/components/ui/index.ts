@@ -20,3 +20,7 @@ export { default as Pagination } from "./Pagination";
 export { default as Skeleton, SkeletonCard, SkeletonTable } from "./Skeleton";
 export { default as EmptyState, ErrorState } from "./EmptyState";
 export { default as StatCard } from "./StatCard";
+export { default as StatusBadge } from "./StatusBadge";
+export { default as PageHeader } from "./PageHeader";
+export { default as FilterBar } from "./FilterBar";
+export { default as DocumentUploader } from "./DocumentUploader";

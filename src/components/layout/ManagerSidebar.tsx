@@ -19,6 +19,10 @@ import {
   ChevronDown,
   ChevronLeft,
   ChevronRight,
+  Receipt,
+  Wallet,
+  FolderGit2,
+  Book,
 } from "lucide-react";
 
 interface NavItem {
@@ -29,8 +33,8 @@ interface NavItem {
 }
 
 const teamNavItems: NavItem[] = [
-  { to: "/team", icon: LayoutDashboard, label: "Team" },
-  { to: "/team/employees", icon: Users, label: "Employees" },
+  { to: "/team", icon: LayoutDashboard, label: "Team Overview" },
+  { to: "/team/employees", icon: Users, label: "Team Members" },
   {
     to: "/team/approvals",
     icon: UserCheck,
@@ -46,8 +50,12 @@ const teamNavItems: NavItem[] = [
 const myNavItems: NavItem[] = [
   { to: "/team/dashboard", icon: Home, label: "Dashboard" },
   { to: "/team/attendance", icon: Calendar, label: "Attendance" },
-  { to: "/team/attendance/monthly", icon: CalendarRange, label: "Monthly" },
+  { to: "/team/attendance/monthly", icon: CalendarRange, label: "Monthly Log" },
   { to: "/team/leave", icon: BookOpen, label: "Leave" },
+  { to: "/team/expenses", icon: Receipt, label: "Expense Claims" },
+  { to: "/team/payslips", icon: Wallet, label: "My Payslips" },
+  { to: "/team/documents", icon: FolderGit2, label: "Document Vault" },
+  { to: "/team/policies", icon: Book, label: "Handbook" },
   { to: "/team/notifications", icon: Bell, label: "Notifications" },
   { to: "/team/profile", icon: User, label: "Profile" },
 ];

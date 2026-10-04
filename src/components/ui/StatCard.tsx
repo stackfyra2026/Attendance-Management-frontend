@@ -1,10 +1,11 @@
 import { classNames } from "@/utils/helpers";
-import { type LucideIcon } from "lucide-react";
+import { type LucideIcon, Activity } from "lucide-react";
 
 interface StatCardProps {
   title: string;
   value: string | number;
-  icon: LucideIcon;
+  icon?: LucideIcon;
+  subtitle?: string;
   change?: number;
   changeLabel?: string;
   variant?: "default" | "primary" | "success" | "warning" | "danger";
@@ -30,7 +31,8 @@ const iconStyles = {
 export default function StatCard({
   title,
   value,
-  icon: Icon,
+  icon: Icon = Activity,
+  subtitle,
   change,
   changeLabel,
   variant = "default",
@@ -48,6 +50,9 @@ export default function StatCard({
         <div className="min-w-0 flex-1">
           <p className="text-xs font-semibold uppercase tracking-wider text-app-muted truncate">{title}</p>
           <p className="text-2xl font-bold tracking-tight text-app mt-1.5">{value}</p>
+          {subtitle && (
+            <p className="text-xs text-app-muted mt-1">{subtitle}</p>
+          )}
           {change !== undefined && (
             <p
               className={classNames(

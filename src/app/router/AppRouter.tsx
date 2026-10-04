@@ -36,6 +36,12 @@ import TeamEmployeesPage from "@/pages/manager/TeamEmployeesPage";
 import TeamApprovalsLeavePage from "@/pages/manager/TeamApprovalsLeavePage";
 import TeamApprovalsAttendancePage from "@/pages/manager/TeamApprovalsAttendancePage";
 import ManagerReportsPage from "@/pages/manager/ManagerReportsPage";
+import DepartmentsPage from "@/pages/admin/DepartmentsPage";
+import DocumentsPage from "@/pages/employee/DocumentsPage";
+import CompanyPoliciesPage from "@/pages/employee/CompanyPoliciesPage";
+import ExpensesPage from "@/pages/employee/ExpensesPage";
+import PayrollPage from "@/pages/admin/PayrollPage";
+import PayslipsPage from "@/pages/employee/PayslipsPage";
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated } = useAppSelector((s) => s.auth);
@@ -90,6 +96,10 @@ export default function AppRouter() {
           <Route path="attendance/monthly" element={<MonthlyAttendancePage />} />
           <Route path="leave" element={<LeavePage />} />
           <Route path="leave/apply" element={<ApplyLeavePage />} />
+          <Route path="documents" element={<DocumentsPage />} />
+          <Route path="policies" element={<CompanyPoliciesPage />} />
+          <Route path="expenses" element={<ExpensesPage />} />
+          <Route path="payslips" element={<PayslipsPage />} />
           <Route path="notifications" element={<AdminNotificationsGate />} />
           <Route path="profile" element={<ProfilePage />} />
         </Route>
@@ -129,6 +139,10 @@ export default function AppRouter() {
           <Route path="attendance/monthly" element={<MonthlyAttendancePage />} />
           <Route path="leave" element={<LeavePage />} />
           <Route path="leave/apply" element={<ApplyLeavePage />} />
+          <Route path="documents" element={<DocumentsPage />} />
+          <Route path="policies" element={<CompanyPoliciesPage />} />
+          <Route path="expenses" element={<ExpensesPage />} />
+          <Route path="payslips" element={<PayslipsPage />} />
           <Route path="notifications" element={<NotificationsPage />} />
           <Route path="profile" element={<ProfilePage />} />
         </Route>
@@ -147,10 +161,14 @@ export default function AppRouter() {
           <Route path="employees/:id" element={<EmployeeDetailPage />} />
           <Route path="employees/:id/edit" element={<EmployeeFormPage key="edit" />} />
           <Route path="employees/import" element={<ImportPage />} />
+          <Route path="departments" element={<DepartmentsPage />} />
+          <Route path="documents" element={<DocumentsPage />} />
+          <Route path="policies" element={<CompanyPoliciesPage />} />
+          <Route path="expenses" element={<ExpensesPage />} />
+          <Route path="payroll" element={<PayrollPage />} />
           <Route path="attendance/corrections" element={<CorrectionsPage />} />
           <Route path="leave/approvals" element={<AdminLeaveApprovalsPage />} />
           <Route path="designations" element={<DesignationsPage />} />
-          {/* <Route path="teams" element={<TeamsPage />} /> */}
           <Route path="shifts" element={<ShiftsPage />} />
           <Route path="locations" element={<LocationsPage />} />
           <Route path="holidays" element={<HolidaysPage />} />

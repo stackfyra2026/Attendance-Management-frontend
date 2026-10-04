@@ -17,6 +17,10 @@ import {
   ChevronLeft,
   ChevronRight,
   ClipboardCheck,
+  FolderGit2,
+  BookOpen,
+  Receipt,
+  Wallet,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -37,7 +41,7 @@ const navItems: NavItem[] = [
       { to: "/employees", label: "All Employees" },
       { to: "/employees/new", label: "Add Employee" },
       { to: "/employees/import", label: "Import" },
-      // { to: "/teams", label: "Teams" },
+      { to: "/departments", label: "Departments" },
       { to: "/designations", label: "Designations" },
     ],
   },
@@ -53,6 +57,10 @@ const navItems: NavItem[] = [
       { to: "/attendance/corrections", label: "Corrections" },
     ],
   },
+  { to: "/payroll", icon: Wallet, label: "Payroll" },
+  { to: "/expenses", icon: Receipt, label: "Expenses" },
+  { to: "/documents", icon: FolderGit2, label: "Documents" },
+  { to: "/policies", icon: BookOpen, label: "Policies" },
   { to: "/reports", icon: FileBarChart, label: "Reports" },
   { to: "/announcements", icon: Megaphone, label: "Announcements" },
   { to: "/admin/notifications", icon: Bell, label: "Notifications" },
