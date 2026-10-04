@@ -9,9 +9,13 @@ import Button from "@/components/ui/Button";
 import Logo from "@/components/ui/Logo";
 
 const DEMO_ACCOUNTS = [
-  { email: "rahul@attendflow.in", label: "Rahul", roleLabel: "Employee", icon: <User className="h-4 w-4" /> },
-  { email: "priya@attendflow.in", label: "Priya", roleLabel: "Manager", icon: <Users className="h-4 w-4" /> },
+  { email: "superadmin@attendflow.in", label: "SuperAdmin", roleLabel: "Super Admin", icon: <Shield className="h-4 w-4" /> },
   { email: "admin@attendflow.in", label: "Vikram", roleLabel: "Admin", icon: <Shield className="h-4 w-4" /> },
+  { email: "hr@attendflow.in", label: "Sneha", roleLabel: "HR Admin", icon: <Shield className="h-4 w-4" /> },
+  { email: "payroll@attendflow.in", label: "Rakesh", roleLabel: "Payroll", icon: <Shield className="h-4 w-4" /> },
+  { email: "finance@attendflow.in", label: "Ananya", roleLabel: "Finance", icon: <Shield className="h-4 w-4" /> },
+  { email: "priya@attendflow.in", label: "Priya", roleLabel: "Manager", icon: <Users className="h-4 w-4" /> },
+  { email: "rahul@attendflow.in", label: "Rahul", roleLabel: "Employee", icon: <User className="h-4 w-4" /> },
 ];
 
 export default function LoginPage() {

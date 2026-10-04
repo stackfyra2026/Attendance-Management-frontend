@@ -15,6 +15,10 @@ export const ROLE_LABELS: Record<Role, string> = {
   [Role.EMPLOYEE]: "Employee",
   [Role.MANAGER]: "Manager",
   [Role.ADMIN]: "Admin",
+  [Role.SUPER_ADMIN]: "Super Admin",
+  [Role.HR_ADMIN]: "HR Admin",
+  [Role.PAYROLL_MANAGER]: "Payroll Manager",
+  [Role.FINANCE_EXEC]: "Finance Executive",
 };
 
 export const ATTENDANCE_STATUS_LABELS: Record<string, string> = {

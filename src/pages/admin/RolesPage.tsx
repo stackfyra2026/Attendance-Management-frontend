@@ -12,10 +12,14 @@ import { Role } from "@/types/enums";
 import { capitalize } from "@/utils/helpers";
 import type { Permission, Role_ } from "@/types";
 
-const EDITABLE_ROLES = [Role.MANAGER, Role.EMPLOYEE] as const;
+const EDITABLE_ROLES = [Role.HR_ADMIN, Role.PAYROLL_MANAGER, Role.FINANCE_EXEC, Role.MANAGER, Role.EMPLOYEE] as const;
 
 const ACCESS_LEVEL: Record<string, { label: string; variant: "primary" | "success" | "warning" | "default" }> = {
   [Role.ADMIN]: { label: "Full Access", variant: "primary" },
+  [Role.SUPER_ADMIN]: { label: "SaaS Platform", variant: "primary" },
+  [Role.HR_ADMIN]: { label: "HR Access", variant: "success" },
+  [Role.PAYROLL_MANAGER]: { label: "Payroll Access", variant: "success" },
+  [Role.FINANCE_EXEC]: { label: "Finance Access", variant: "success" },
   [Role.MANAGER]: { label: "Team Access", variant: "warning" },
   [Role.EMPLOYEE]: { label: "Basic Access", variant: "default" },
 };

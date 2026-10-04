@@ -42,6 +42,8 @@ import CompanyPoliciesPage from "@/pages/employee/CompanyPoliciesPage";
 import ExpensesPage from "@/pages/employee/ExpensesPage";
 import PayrollPage from "@/pages/admin/PayrollPage";
 import PayslipsPage from "@/pages/employee/PayslipsPage";
+import TeamsPage from "@/pages/admin/TeamsPage";
+import SaasTenantsPage from "@/pages/admin/SaasTenantsPage";
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated } = useAppSelector((s) => s.auth);
@@ -57,7 +59,14 @@ function RoleRoute({
   children: React.ReactNode;
 }) {
   const { user } = useAppSelector((s) => s.auth);
-  if (!user || !allowedRoles.includes(user.role)) {
+  if (!user) return <Navigate to="/login" replace />;
+  const isSuperAdmin = user.role === Role.SUPER_ADMIN;
+  const isAllowed =
+    allowedRoles.includes(user.role) ||
+    isSuperAdmin ||
+    (allowedRoles.includes(Role.ADMIN) &&
+      [Role.HR_ADMIN, Role.PAYROLL_MANAGER, Role.FINANCE_EXEC].includes(user.role));
+  if (!isAllowed) {
     return <Navigate to="/login" replace />;
   }
   return <>{children}</>;
@@ -162,6 +171,8 @@ export default function AppRouter() {
           <Route path="employees/:id/edit" element={<EmployeeFormPage key="edit" />} />
           <Route path="employees/import" element={<ImportPage />} />
           <Route path="departments" element={<DepartmentsPage />} />
+          <Route path="teams" element={<TeamsPage />} />
+          <Route path="saas" element={<SaasTenantsPage />} />
           <Route path="documents" element={<DocumentsPage />} />
           <Route path="policies" element={<CompanyPoliciesPage />} />
           <Route path="expenses" element={<ExpensesPage />} />

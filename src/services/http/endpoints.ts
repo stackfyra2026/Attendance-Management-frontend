@@ -125,6 +125,17 @@ export const API = {
     payslipById: (id: string) => `/payroll/payslips/${id}`,
     payslipPdf: (id: string) => `/payroll/payslips/${id}/pdf`,
   },
+  saas: {
+    register: "/saas/register",
+    plans: "/saas/plans",
+    tenants: "/saas/tenants",
+    tenant: (id: string) => `/saas/tenants/${id}`,
+    tenantStatus: (id: string) => `/saas/tenants/${id}/status`,
+  },
+  billing: {
+    plans: "/billing/plans",
+    entitlements: "/billing/entitlements",
+  },
   app: {
     version: "/app/version",
   },

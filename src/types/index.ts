@@ -351,3 +351,52 @@ export interface AttendanceTrend {
   absent: number;
   late: number;
 }
+
+export interface TenantSummary {
+  id: string;
+  name: string;
+  subdomain: string;
+  slug?: string;
+  contactEmail?: string;
+  status: "ACTIVE" | "TRIAL" | "SUSPENDED" | "CANCELLED";
+  plan: string;
+  planName?: string;
+  planCode?: string;
+  employeeCount: number;
+  maxEmployees: number;
+  billingCycle: "MONTHLY" | "YEARLY";
+  nextBillingDate: string;
+  createdAt: string;
+}
+
+export interface TenantDetail extends TenantSummary {
+  contactEmail: string;
+  ownerName: string;
+  phone?: string;
+  features: string[];
+  entitlements?: {
+    maxEmployees: number;
+    maxStorageMb: number;
+    features: Record<string, boolean>;
+  };
+  subscriptionsHistory: Array<{
+    id: string;
+    plan: string;
+    amount: number;
+    status: string;
+    date: string;
+  }>;
+}
+
+export interface Plan {
+  id: string;
+  name: string;
+  code: string;
+  priceMonthly: number;
+  monthlyPrice?: number;
+  priceYearly: number;
+  maxEmployees: number;
+  features: string[];
+  isPopular?: boolean;
+}
+

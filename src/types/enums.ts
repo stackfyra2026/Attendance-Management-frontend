@@ -2,6 +2,10 @@ export enum Role {
   EMPLOYEE = "employee",
   MANAGER = "manager",
   ADMIN = "admin",
+  SUPER_ADMIN = "super_admin",
+  HR_ADMIN = "hr_admin",
+  PAYROLL_MANAGER = "payroll_manager",
+  FINANCE_EXEC = "finance_exec",
 }
 
 export enum AttendanceStatus {

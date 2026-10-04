@@ -2,6 +2,7 @@ import { NavLink, useLocation } from "react-router";
 import { useAppSelector, useAppDispatch } from "@/hooks/useRedux";
 import { closeSidebar, toggleSidebarCollapsed } from "@/store/slices/appSlice";
 import Brand from "@/components/layout/Brand";
+import { Role } from "@/types/enums";
 import {
   LayoutDashboard,
   Users,
@@ -21,6 +22,7 @@ import {
   BookOpen,
   Receipt,
   Wallet,
+  Building2,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -43,6 +45,7 @@ const navItems: NavItem[] = [
       { to: "/employees/import", label: "Import" },
       { to: "/departments", label: "Departments" },
       { to: "/designations", label: "Designations" },
+      { to: "/teams", label: "Teams" },
     ],
   },
   { to: "/shifts", icon: Clock, label: "Shifts" },
@@ -61,6 +64,7 @@ const navItems: NavItem[] = [
   { to: "/expenses", icon: Receipt, label: "Expenses" },
   { to: "/documents", icon: FolderGit2, label: "Documents" },
   { to: "/policies", icon: BookOpen, label: "Policies" },
+  { to: "/saas", icon: Building2, label: "SaaS Portal" },
   { to: "/reports", icon: FileBarChart, label: "Reports" },
   { to: "/announcements", icon: Megaphone, label: "Announcements" },
   { to: "/admin/notifications", icon: Bell, label: "Notifications" },
@@ -80,6 +84,7 @@ const myNavItems: NavItem[] = [{ to: "/admin/profile", icon: User, label: "Profi
 
 export default function AdminSidebar() {
   const { sidebarOpen, sidebarCollapsed } = useAppSelector((s) => s.app);
+  const { user } = useAppSelector((s) => s.auth);
   const dispatch = useAppDispatch();
   const location = useLocation();
   const [expandedItems, setExpandedItems] = useState<string[]>(["/employees", "/settings", "/leave/approvals"]);
@@ -127,7 +132,12 @@ export default function AdminSidebar() {
       </div>
 
       <nav className="p-3 space-y-1 overflow-y-auto h-[calc(100vh-4rem)]">
-        {navItems.map((item) => (
+        {navItems.map((item) => {
+          const isSuperAdmin = user?.role === Role.SUPER_ADMIN || String(user?.role).toUpperCase() === "SUPER_ADMIN";
+          if (item.to === "/saas" && !isSuperAdmin) {
+            return null;
+          }
+          return (
           <div key={item.to}>
             {item.children ? (
               <>
@@ -185,7 +195,8 @@ export default function AdminSidebar() {
               </NavLink>
             )}
           </div>
-        ))}
+        );
+        })}
         {!sidebarCollapsed && (
           <p className="px-3 pt-4 pb-1 text-[10px] font-bold uppercase tracking-wider text-app-muted/70">
             My Account
